@@ -105,7 +105,7 @@ html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%;width:100%;height:
   ['payment','order_no','open'].forEach(function(k){if(params.has(k))target.searchParams.set(k,params.get(k));});
   var ticket = params.get('wx_ticket');
   if (ticket) target.searchParams.set('wx_ticket', ticket);
-  var shareUrl = 'https://live830.github.io/web/live/' + roomId+'/'+shareCode;
+  var shareUrl = 'https://wx8083.github.io/web/live/' + roomId+'/'+shareCode;
   document.querySelector('meta[property="og:url"]').content = shareUrl;
   function updateRoomTitle(title) {
     if (typeof title !== 'string' || !title.trim()) return;
@@ -120,7 +120,7 @@ html,body{-webkit-text-size-adjust:100%;text-size-adjust:100%;width:100%;height:
     var data = event.data;
     if(data.source==='yunbo-share-identity'&&String(data.room_id)===String(roomId)&&/^[a-f0-9]{64}$/.test(data.identity||'')){try{localStorage.setItem('yunbo_share_identity_v1',data.identity);}catch(e){}return;}
     if(data.source==='yunbo-share-ready'&&String(data.room_id)===String(roomId)&&/^u_(?:[a-z0-9]{6}|[a-f0-9]{32})$/.test(data.code||'')){
-      var ownUrl='https://live830.github.io/web/live/'+roomId+'/'+data.code;
+      var ownUrl='https://wx8083.github.io/web/live/'+roomId+'/'+data.code;
       document.querySelector('meta[property="og:url"]').content=ownUrl;
       history.replaceState(null,'','/web/live/'+roomId+'/'+data.code);
       try{localStorage.setItem('yunbo_share_entry_'+roomId,data.code);}catch(e){}
